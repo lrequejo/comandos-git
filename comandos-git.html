@@ -1,0 +1,282 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Comandos Git</title>
+  <style type="text/css">
+    body {
+      font-family: sans-serif;
+      /*line-height: 1.5;*/
+      padding-bottom: 7rem;
+    }
+
+    #contenedor {
+      width: 98%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    dd {
+      font-size: .8em;
+      margin-top: .2em;
+      margin-bottom: .4em;
+    }
+
+    h1 span {
+      font-size: 1rem;
+    }
+
+    .vim {
+      font-size: .9rem;
+      margin-top: 1.5rem;
+      margin-bottom: .4rem;
+    }
+
+    .nota {
+      font-size: .8rem;
+    }
+
+      @media (min-width:1000px) {
+        #contenedor {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 2rem;
+        }
+
+        h1 {
+          grid-column: 1 / -1;
+        }
+      }
+  </style>
+</head>
+
+<body>
+  <div id="contenedor">
+    <h1>Comandos básicos Git <span>(mayo 2020) v.1.0</span></h1>
+    <div>
+      <h2>Git bash (linux)</h2>
+      <dl>
+        <dt><b>pwd</b></dt>
+        <dd>Indica el directorio actual</dd>
+        <dt><b>cd</b> [ <i>.. | &lt;nombre&gt; | &lt;unidad:&gt; </i>]</dt>
+        <dd>Cambio de directorio.</dd>
+        <dt><b>ls</b></dt>
+        <dd>Listado del contenido del directorio actual.</dd>
+        <dt><b>ls </b>[ruta]</dt>
+        <dd>Listado del contenido de la ruta indicada.</dd>
+        <dt><b>ls -la</b></dt>
+        <dd>Listado del contenido del directorio actual incluyendo elementos ocultos.</dd>
+        <dt><b>mkdir</b> [<i>nombre</i>]</dt>
+        <dd>Crea un directorio.</dd>
+        <dt><b>touch</b> [<i>nombre</i>]</dt>
+        <dd>Crea un archivo vacío.</dd>
+        <dt><b>cat</b> [<i>nombre</i>]</dt>
+        <dd>Visualiza un fichero de texto sin necesidad de editor.</dd>
+        <dt><b>clear</b></dt>
+        <dd>Limpia el contenido del terminal.</dd>
+        <dt><b>ctrol + p</b> | ( F8 en Visual Studio Code )</dt>
+        <dd>Repite la útima línea escrita (si se continúa pulsando continúa con el historial de líneas escritas).</dd>
+        <dt><b>ctrol + c</b></dt>
+        <dd>Salir del prompt de bash.</dd>
+        <h3 class="vim">Comandos del editor Vim</h3>
+        <dt><b>i</b></dt>
+        <dd>Cambiar a modo insertar.</dd>
+        <dt><b>[esc]</b></dt>
+        <dd>Vuelta al modo normal.</dd>
+        <dt><b>:x</b></dt>
+        <dd>Guardar cambios.</dd>
+        <dt><b>:wq</b></dt>
+        <dd>Guardar cambios y salir.</dd>
+        <dt><b>:q</b></dt>
+        <dd>Salir (si no ha habido cambios).</dd>
+        <dt><b>:q!</b></dt>
+        <dd>Forzar la salida en cualquier caso.</dd>
+      </dl>
+    </div>
+    <div>
+      <h2>Configuración</h2>
+      <dl>
+        <dt><b>git --version</b></dt>
+        <dd>Versión instalada de Git.</dd>
+        <dt><b>git config [--global] user.name</b> [<i>nombre</i>]</dt>
+        <dd>Establece nombre de usuario.</dd>
+        <dt><b>git config [--global] user.name</b></dt>
+        <dd>Devuelve nombre de usuario.</dd>
+        <dt><b>git config [--global] user.email</b> [<i>correo</i>]</dt>
+        <dd>Establece correo electrónico.</dd>
+        <dt><b>git config [--global] user.email</b></dt>
+        <dd>Devuelve correo electrónico.</dd>
+        <dt><b>git config [--global] --list</b></dt>
+        <dd>Lista los datos de configuración.</dd>
+        <dt><b>git config [--global] alias.</b>[<i>alias</i>] [<i>comando</i>]</dt>
+        <dd>Crea un alias para un comando. Útil para acortar comandos largos.</dd>
+        <dt><b>git config</b> [<i>comando</i>] <b>-help</b></dt>
+        <dd>Ayuda sobre las opciones más usuales de un comando.</dd>
+        <dt><b>git config</b> [<i>comando</i>] <b>--help</b></dt>
+        <dd>Ayuda completa sobre un comando.</dd>
+
+        <p class="nota">* El uso del parámetro [--global] se refiere a configuración global por defecto. Sin él la configuración es para el repositorio actual.</p>
+
+      </dl>
+    </div>
+    <div>
+      <h2>Repositorios</h2>
+      <dl>
+        <dt><b>git init</b></dt>
+        <dd>Crea un repositorio (.<i>git</i>) en nuestra carpeta del proyecto (<i>working area</i>).</dd>
+        <dt><b>git init</b> [<i>nombre-carpeta</i>]</dt>
+        <dd>Crea una carpeta y dentro de ella un repositorio (.<i>git</i>).</dd>
+        <dt><b>git status</b></dt>
+        <dd>Nos devuelve el estado actual del flujo de trabajo<i> (workflow</i>).</dd>
+        <dt><b>git diff</b></dt>
+        <dd>Señala los cambios realizados en el <i>working area</i> desde el último commit.</dd>
+        <dt><b>git diff HEAD</b></dt>
+        <dd>Señala los cambios pendientes en el <i>staging area</i>.</dd>
+        <dt><b>.gitignore</b></dt>
+        <dd>Fichero de texto que contiene los ficheros y carpetas que queremos ignorar en el flujo de trabajo.</dd>
+        <dt><b>git add</b> [<i>nombre-fichero</i>] <b>[ --all | -A | . ]</b></dt>
+        <dd>Añade fichero/s modificados al<i> stage area</i>.</dd>
+        <dt><b>git restore</b> [<i>nombre-fichero</i>]</dt>
+        <dd>Descarta los cambios realizados en el <i>working area</i> y vuelve al último commit.</dd>
+        <dt><b>git restore --staged</b> [<i>nombre-fichero</i>]</dt>
+        <dd>Descarta los cambios del <i>stage area.</i></dd>
+        <dt><b>git checkout</b> [<i>nombre-fichero</i>]</dt>
+        <dd>Copia el fichero del <i>stage area</i> al <i>working area</i>, descartando los nuevos cambios que hubiera en éste.
+        <dt><b>git checkout -f</b></dt>
+        <dd>Descarta los cambios realizados en el <i>working area</i> y los pendientes en el <i>staging area</i> y vuelve al último commit.
+        </dd>
+        <dt><b>git commit -m </b><i>"Texto del commit"</i></dt>
+        <dd>Sube los ficheros del <i>stage area</i> al repositorio.</dd>
+        <dt><b>git commit -am</b> <i>"Texto del commit"</i></dt>
+        <dd>Commit incluyendo el git add (sólo archivos modificados).</dd>
+        <dt><b>git commit --amend</b></dt>
+        <dd>Abre el editor de texto para modificar el último commit. <br>
+          Para cambiar el mensaje de commits anteriores usar <i>git rebase -i.</i></dd>
+        <dt><b>git commit --amend -m </b><i>"Texto del commit"</i></dt>
+        <dd>Escribe el texto indicado y no abre el editor como el código anterior.</dd>
+        <dt><b>git reset --hard HEAD~X</b> | <b>git reset --hard</b> <i>[código]</i></dt>
+        <dd>
+          Se posiciona en el commit indicado en <i>X o código</i> y borra todo el historial posterior. (Si usamos
+          <i>soft</i> en lugar de <i>hard</i>, no borra el historial posterior, manteniendo el estado actual del
+          <i>working area</i> y del <i>index</i>. La opción por defecto es <i>mixed</i>, que sólo mantiene el <i>working
+            area</i>).<br>
+          [* X indica el commit afectado: sin X, el actual | X=1...n, los siguientes en orden].<br>
+          ¡CUIDADO!, para repositorios compartidos ya publicados en remoto usar mejor <i>git revert.</i></dd>
+        <dt><b>git reflog</b> [<i>nombre-rama</i>]</dt>
+        <dd>Muestra el historial de commits 'borrados', que se pueden recuperar con la orden <i>git reset --hard
+            HEAD@{X}</i></dd>
+        <dt><b>git show</b></dt>
+        <dd>Muestra informción del último commit así como los cambios realizados desde el anterior.</dd>
+        <dt><b>git show</b> [<i>código</i>]</dt>
+        <dd>Muestra informción del commit indicado así como los cambios realizados desde el anterior.</dd>
+        <dt><b>git log [<i>-x</i>]</b></dt>
+        <dd>Muestra el historial completo [o de los 'x' últimos commits] de los cambios realizados.</dd>
+        <dt><b>git log > commits.txt</b></dt>
+        <dd>Crea un fichero de texto con el historial completo de los cambios realizados.</dd>
+        <dt><b>git log --oneline</b></dt>
+        <dd>Muestra el historial reducido de los cambios realizados.</dd>
+        <dt><b>git checkout</b> [<i>código</i>] <> <b>git checkout</b> [<i>rama-local</i>]</dt>
+        <dd>Se posiciona en el lugar del historial indicado <> Vuelve al final del historial.</dd>
+      </dl>
+    </div>
+    <div>
+      <h2>Ramas</h2>
+      <dl>
+        <dt><b>git branch</b></dt>
+        <dd>Listado de ramas visibles.</dd>
+        <dt><b>git branch -a</b></dt>
+        <dd>Listado de todas la ramas visibles y ocultas (resultado de un <i>git fetch</i>).</dd>
+        <dt><b>git branch </b>[<i>rama-local</i>]</dt>
+        <dd>Crea una rama.</dd>
+        <dt><b>git checkout</b> [<i>rama-local</i>] | <b>git switch</b> [<i>rama-local</i>]</dt>
+        <dd>Se posiciona al final de una rama.</dd>
+        <dt><b>git checkout -b</b> [<i>rama-local</i>]</dt>
+        <dd>Crea una rama y se posiciona en ella.</dd>
+        <dt><b>git merge</b> [<i>rama</i>]</dt>
+        <dd>Mezcla una rama con la rama en que estemos posicionados.</dd>
+        <dt><b>git merge --abort</b></dt>
+        <dd>Aborta la mezcla en curso.</dd>
+        <dt><b>git rebase</b> [<i>master</i>]</dt>
+        <dd>Alternativa para integrar la rama en la que estamos posicionados con el <i>master</i> antes de hacer el
+          <i>git merge</i>.</dd>
+        <dt><b>git branch -d</b> [<i>rama-local</i>]</dt>
+        <dd>Borra una rama fusionada.</dd>
+        <dt><b>git branch -D</b> [<i>rama-local</i>]</dt>
+        <dd>Borra una rama aunque no haya sido fusionada.</dd>
+        <dt><b>git branch -m</b> [<i>nombre-actual</i>] [<i>nombre-nuevo</i>]</dt>
+        <dd>Renombra una rama.</dd>
+        <dt><b>git branch --merged</b></dt>
+        <dd>Lista las ramas mezcladas.</dd>
+        <dt><b>git branch --no-merged</b></dt>
+        <dd>Lista las ramas no mezcladas.</dd>
+        <dt><b>git log --graph [--oneline --all <i>-x</i>]</b></dt>
+        <dd>Gráfica de la rama actual, de '--all' todas o de los 'x' últimos commits. (Se puede usar un alias para acortar el comando).</dd>
+      </dl>
+    </div>
+    <div>
+      <h3>Repositorios remotos</h3>
+      <dl>
+        <dt><b>git clone</b> [<i>url</i>]</dt>
+        <dd>Clona un repositorio alojado en un servidor. La <i>url</i> se puede indicar en diferentes protocolos
+          (básicamente <i>https</i> o <i>ssh</i>).</dd>
+        <dt><b>git remote add</b> [<i>nombre</i>] [<i>url</i>]</dt>
+        <dd>Asociamos un repositorio remoto al local dándole un nombre (por defecto <i>origin</i>).</dd>
+        <dt><b>git remote</b></dt>
+        <dd>Muestra los repositorios remotos asociados.</dd>
+        <dt><b>git remote -v</b></dt>
+        <dd>Mustra los repositorios remotos y sus <i>url</i> asociadas.</dd>
+        <dt><b>git fetch</b> [<i>rama-remota</i>]</dt>
+        <dd>Recupera todos los datos del proyecto remoto y los almacena en una rama local oculta. Pero no los mezcla con
+          los datos locales.</dd>
+        <dt><b>git pull</b> [<i>rama-remota</i>] [<i>rama-local</i>]</dt>
+        <dd>Recupera todos los datos del proyecto remoto y los mezcla con los datos locales. Es un <i>git fetch + git
+            merge</i>.<br>Si hay conflicto tenemos dos opciones...</dd>
+        <dt><b>git reset --hard</b> [<i>rama-remota</i>] / [<i>rama-local</i>]</dt>
+        <dd>Fuerza la sobreescritura de una rama local con una remota, o bien...</dd>
+        <dt><b>git pull --rebase</b> [<i>rama-remota</i>] [<i>rama-local</i>]</dt>
+        <dd>Recupera todos los datos del proyecto remoto y los mezcla con los datos locales reordenando el historial.
+        </dd>
+        <dt><b>git push</b> <b>[-u]</b> [<i>rama-remota</i>] [<i>rama-local</i>]</dt>
+        <dd>Sube una rama local al repositorio remoto. Usando <i>-u</i> la primera vez, las siguientes recuerda las
+          ramas implicadas. <br>Si hay conflicto debemos sincronizarla primero bajando los cambios, o bien...</dd>
+        <dt><b>git push -f</b> origin [<i>rama-local</i>]</dt>
+        <dd>Fuerza la sobreescritura de una rama remota con una local (sin parámetros se refiere a la rama actual).<br>
+          ¡CUIDADO!, no hacer con repositorios compartidos.</dd>
+        <dt><b>git push --all</b> [<i>rama-remota</i>]</dt>
+        <dd>Sube todas las ramas de local a remoto.</dd>
+        <dt><b>git remote rm</b> [<i>rama-remota</i>]</dt>
+        <dd>Desasocia (no borra) un repositorio remoto con el local.</dd>
+        <dt><b>git push origin -d</b> [<i>rama-remota</i>]</dt>
+        <dd>Elimina una rama remota.</dd>
+      </dl>
+    </div>
+    <div>
+      <h3>Etiquetas</h3>
+      <dl>
+        <dt><b>git tag </b> [<i>nombre</i>] <b>[ -a | -s ] -m</b> [<i>mensaje</i>]</dt>
+        <dd>Crea una etiqueta anotada y/o firmada en la posición actual.</dd>
+        <dt><b>git tag </b> [<i>nombre</i>] [<i>código</i>] <b>[ -a | -s ] -m</b> [<i>mensaje</i>]</dt>
+        <dd>Crea una etiqueta en el punto del historial correspondiente al código introducido.</dd>
+        <dt><b>git tag --list</b></dt>
+        <dd>Listado de todas las etiquetas.</dd>
+        <dt><b>git tag -v</b> [<i>etiqueta</i>]</dt>
+        <dd>Muestra información de la etiqueta.</dd>
+        <dt><b>git show</b> [<i>etiqueta</i>]</dt>
+        <dd>Muestra información completa de la etiqueta y el commit asociado.</dd>
+        <dt><b>git push</b>
+          < [<i>etiqueta</i>] | <b>[--tags]</b> > [<i>rama-remota</i>]
+        </dt>
+        <dd>Sube al repositorio remoto la etiqueta | todas las etiquetas</dd>
+        <dt><b>git tag -f </b> [<i>etiqueta</i>]</dt>
+        <dd>Borra una etiqueta en local.</dd>
+        <dt><b>git tag -d</b> [<i>etiqueta</i>]</dt>
+        <dd>Borra una etiqueta en local.</dd>
+        <dt><b>git push -d</b> [<i>rama-remota</i>] [<i>etiqueta</i>]</dt>
+        <dd>Borra una etiqueta en remoto.</dd>
+      </dl>
+    </div>
+  </div>
+</body>
+
+</html>
