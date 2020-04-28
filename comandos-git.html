@@ -53,7 +53,7 @@
 
 <body>
   <div id="contenedor">
-    <h1>Comandos básicos Git <span>(mayo 2020) v.1.2</span></h1>
+    <h1>Comandos básicos Git <span>(mayo 2020) v.1.3</span></h1>
     <div>
       <h2>Git bash (linux)</h2>
       <dl>
@@ -107,6 +107,12 @@
         <dd>Establece correo electrónico.</dd>
         <dt><b>git config [--global] user.email</b></dt>
         <dd>Devuelve correo electrónico.</dd>
+        <dt><b>git config [--global] core.editor</b> [<i>editor</i>]</dt>
+        <dd>Establece editor de texto.<br>
+          Ej. <i>code --wait</i> para Visual Studio Code en Windows
+        </dd>
+        <dt><b>git config [--global] core.editor</b></dt>
+        <dd>Devuelve editor de texto.</dd>
         <dt><b>git config [--global] --list</b></dt>
         <dd>Lista los datos de configuración.</dd>
         <dt><b>git config [--global] alias.</b>[<i>alias</i>] [<i>comando</i>]</dt>
@@ -170,8 +176,8 @@
         <dd>Muestra informción del último commit así como los cambios realizados desde el anterior.</dd>
         <dt><b>git show</b> [<i>código</i>]</dt>
         <dd>Muestra informción del commit indicado así como los cambios realizados desde el anterior.</dd>
-        <dt><b>git log [<i>-x</i>]</b></dt>
-        <dd>Muestra el historial completo [o de los 'x' últimos commits] de los cambios realizados.</dd>
+        <dt><b>git log [<i>-x</i> | --all]</b></dt>
+        <dd>Muestra todo el historial hasta HEAD [de los 'x' últimos commits | historial completo].</dd>
         <dt><b>git log > commits.txt</b></dt>
         <dd>Crea un fichero de texto con el historial completo de los cambios realizados.</dd>
         <dt><b>git log --oneline</b></dt>
@@ -193,6 +199,8 @@
         <dd>Se posiciona al final de una rama.</dd>
         <dt><b>git checkout -b</b> [<i>rama-local</i>]</dt>
         <dd>Crea una rama y se posiciona en ella.</dd>
+        <dt><b>git checkout -c</b> [<i>rama-local</i>]</dt>
+        <dd>Crea una rama desde una posición anterior del historial y se posiciona en ella.</dd>
         <dt><b>git merge</b> [<i>rama</i>]</dt>
         <dd>Mezcla una rama con la rama en que estemos posicionados.</dd>
         <dt><b>git merge --abort</b></dt>
