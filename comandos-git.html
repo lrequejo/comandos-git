@@ -53,7 +53,7 @@
 
 <body>
   <div id="contenedor">
-    <h1>Comandos básicos Git <span>(mayo 2020) v.1.4</span></h1>
+    <h1>Comandos básicos Git <span>(mayo 2020) v.1.5</span></h1>
     <div>
       <h2>Git bash (linux)</h2>
       <dl>
@@ -157,10 +157,10 @@
         <dt><b>git commit -am</b> <i>"Texto del commit"</i></dt>
         <dd>Commit incluyendo el git add (sólo archivos modificados).</dd>
         <dt><b>git commit --amend</b></dt>
-        <dd>Abre el editor de texto para modificar el mensaje del último commit. <br>
+        <dd>Edita el último commit. Abre el editor de texto para modificar el mensaje y añade los cambios que estén en el <i>index</i>.<br>
           Para modificar commits anteriores usar <i>git rebase -i</i></dd>
         <dt><b>git commit --amend -m </b><i>"Texto del commit"</i></dt>
-        <dd>Escribe el texto indicado y no abre el editor como el código anterior.</dd>
+        <dd>Como el comando anterior pero escribiendo el texto directamente, sin abrir el editor.</dd>
         <dt><b>git reset --hard HEAD~X</b> | <b>git reset --hard</b> <i>[código]</i></dt>
         <dd>
           Se posiciona en el commit indicado en <i>X o código</i> y borra todo el historial posterior. (Si usamos
